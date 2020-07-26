@@ -4,8 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>รายรับรายจ่าย</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link type="text/css" href="/style.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" sizes="64x64" href="/money.png" />
+    <script src="/assets/script/datepicker.js"></script>
+
+    <link type="text/css" href="/assets/style/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/money.png" />
   </head>
 
   <body>
@@ -54,9 +56,22 @@
                 class="form-control"
                 id="price"
                 aria-describedby="priceLabel"
-                placeholder="จำนวน"
+                placeholder="บาท"
                 required
               />
+            </div>
+
+            <div class="form-group focused">
+              <label class="h6" for="date">Choose a date</label>
+              <div class="input-group mb-4">
+                <input
+                  class="form-control datepicker"
+                  id="date"
+                  placeholder="Select date"
+                  type="date"
+                  aria-label="Date with icon left"
+                />
+              </div>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">
@@ -106,30 +121,35 @@
       }
     </style>
 
-    <script>
-      function postToGoogle() {
-        var field1 = $("#detail").val();
-        var field2 = $("#amount").val();
-        var field3 = $("#price").val();
+    <script type="text/javascript">
+      Date.prototype.toDateInputValue = function () {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0, 10);
+      };
 
-        if (field1 == "") {
-          alert("Please Fill Your Name");
-          document.getElementById("detail").focus();
-          return false;
-        }
-        if (field2 == "") {
-          alert("Please Fill Your Email");
-          document.getElementById("price").focus();
-          return false;
-        }
+      $(document).ready(function () {
+        console.log("");
+        $("#date").val(new Date().toDateInputValue());
+      });
+
+      function postToGoogle() {
+        var detail = $("#detail").val();
+        var amount = $("#amount").val();
+        var price = $("#price").val();
+        var date = $("#date").val().split("-");
+        console.log(date);
 
         $.ajax({
           url:
             "https://docs.google.com/forms/d/e/1FAIpQLSfrm0YbMukIAnAV_v5venfrFCbDuc0j7KYjjRZ97qJtsRKqGQ/formResponse?",
           data: {
-            "entry.1800535884": field1,
-            "entry.2123962925": field2,
-            "entry.1420494445": field3,
+            "entry.1800535884": detail,
+            "entry.2123962925": amount,
+            "entry.1420494445": price,
+            "entry.1512904569_year": date[0],
+            "entry.1512904569_month": date[1],
+            "entry.1512904569_day": date[2],
           },
           type: "POST",
           dataType: "xml",
