@@ -97,6 +97,11 @@
     <style lang="css">
       #success-msg {
         display: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        left: 0;
+        text-align: center;
       }
     </style>
 
@@ -133,9 +138,16 @@
               $(this).delay(2000).fadeOut("fast");
             });
 
-            $('[type="submit"]').fadeOut("fast", function () {
-              $(this).delay(2000).fadeIn("fast");
-            });
+            // $('[type="submit"]').fadeOut("fast", function () {
+            //   $(this).delay(2000).fadeIn("fast");
+            // });
+
+            $('[type="submit"]')
+              .prop("disabled", true)
+              .delay(2000)
+              .queue(function () {
+                $(this).prop("disabled", false);
+              });
 
             $("#detail,#price").val("");
           },
