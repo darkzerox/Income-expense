@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>รายรับรายจ่าย</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link type="text/css" href="/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="text-center my-5">รายการ รายรับ-รายจ่าย</h1>
+
+      <div class="row">
+        <div class="col-12">
+          <form
+            id="form"
+            target="_self"
+            onsubmit="return postToGoogle();"
+            action=""
+            autocomplete="off"
+            class="mb-5 mx-auto"
+          >
+            <div class="form-group mb-4">
+              <label for="detail">รายการ</label>
+              <input
+                type="text"
+                class="form-control"
+                id="detail"
+                aria-describedby="detailLabel"
+                placeholder="รายการ"
+                required
+              />
+            </div>
+
+            <div class="form-group mb-4">
+              <label for="amount">จำนวน</label>
+              <input
+                type="number"
+                class="form-control"
+                id="amount"
+                aria-describedby="amountLabel"
+                placeholder="จำนวน"
+                value="1"
+                required
+              />
+            </div>
+
+            <div class="form-group mb-4">
+              <label for="price">ราคา</label>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                aria-describedby="priceLabel"
+                placeholder="จำนวน"
+                required
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <span>เพิ่มข้อมูล</span>
+            </button>
+          </form>
+
+          <div id="success-msg">
+            <div class="alert alert-success alert-dismissible shadow-soft fade show" role="alert">
+              <span class="alert-inner--icon"><span class="far fa-thumbs-up"></span></span>
+              <span class="alert-inner--text"><strong>Well done!</strong> You successfully.</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+          </div>
+          <!-- /#success-msg -->
+        </div>
+        <!-- /.col-12 -->
+      </div>
+      <!-- /.row -->
+
+      <div class="row">
+        <div class="col-12">
+          <a
+            href="https://docs.google.com/spreadsheets/d/1eV0VAdDGkyff7bQFsCG0tGRITG17BNt3nIhd3bGNnms/edit#gid=1662673155"
+            target="blank"
+            class="btn btn-primary animate-up-2"
+            type="button"
+            >View result</a
+          >
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+    <style lang="css">
+      #success-msg {
+        display: none;
+      }
+    </style>
+
+    <script>
+      function postToGoogle() {
+        var field1 = $("#detail").val();
+        var field2 = $("#amount").val();
+        var field3 = $("#price").val();
+
+        if (field1 == "") {
+          alert("Please Fill Your Name");
+          document.getElementById("detail").focus();
+          return false;
+        }
+        if (field2 == "") {
+          alert("Please Fill Your Email");
+          document.getElementById("price").focus();
+          return false;
+        }
+
+        $.ajax({
+          url:
+            "https://docs.google.com/forms/d/e/1FAIpQLSfrm0YbMukIAnAV_v5venfrFCbDuc0j7KYjjRZ97qJtsRKqGQ/formResponse?",
+          data: {
+            "entry.1800535884": field1,
+            "entry.2123962925": field2,
+            "entry.1420494445": field3,
+          },
+          type: "POST",
+          dataType: "xml",
+          success: function (d) {},
+          error: function (x, y, z) {
+            $("#success-msg").fadeIn("slow", function () {
+              $(this).delay(3000).fadeOut("slow");
+            });
+
+            $("#detail,#price").val("");
+          },
+        });
+        return false;
+      }
+    </script>
+  </body>
+</html>
