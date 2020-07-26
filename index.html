@@ -129,8 +129,12 @@
           dataType: "xml",
           success: function (d) {},
           error: function (x, y, z) {
-            $("#success-msg").fadeIn("slow", function () {
-              $(this).delay(3000).fadeOut("slow");
+            $("#success-msg").fadeIn("fast", function () {
+              $(this).delay(2000).fadeOut("fast");
+            });
+
+            $('[type="submit"]').fadeOut("fast", function () {
+              $(this).delay(2000).fadeIn("fast");
             });
 
             $("#detail,#price").val("");
