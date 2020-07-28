@@ -3112,9 +3112,9 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #31344b;
-  background-color: #e6e7ee;
-  border-color: #e6e7ee;
+  color: #fff;
+  background-color: #009688;
+  border-color: #009688;
   box-shadow: inset 0 1px 0 rgba(236, 240, 243, .15), 0 1px 1px rgba(38, 40, 51, .075)
 }
 
@@ -26843,8 +26843,9 @@ button.section-slack:hover {
 }
 
 .alert-success {
-  background: #e6e7ee;
-  color: #18634b
+  color: #fff;
+  background: #009688;
+  font-size: 20px;
 }
 
 .alert-info {
@@ -27621,8 +27622,8 @@ a.badge-slack:hover {
 }
 
 .btn-primary {
-  color: #31344b;
-  background-color: #e6e7ee
+  color: #fff;
+  background-color: #009688;
 }
 
 .btn-primary:hover {
