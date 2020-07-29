@@ -33986,3 +33986,36 @@ article a:hover {
 .tooltip-inner {
   box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff
 }
+
+.select2-container .select2-selection--single {
+  height: unset !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: unset !important;
+  top: 50% !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  padding: 5px;
+}
+
+.select2-container i {
+  padding: 0 10px;
+}
+
+.select2-container .fa-arrow-down {
+  color: #019687;
+}
+
+.select2-container .fa-arrow-up {
+  color: #E91E63;
+}
+
+.select2-container--default .select2-selection--single {
+  background-color: #e6e7ed !important;
+  border: 0 !important;
+  font-size: 1rem;
+  border-radius: .55rem;
+  box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
+}

@@ -8,10 +8,14 @@
 
     <link type="text/css" href="/assets/style/style.css" rel="stylesheet" />
     <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/money.png" />
+
     <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
     />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/cd4a8443be.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -29,26 +33,25 @@
             class="mb-5 mx-auto"
           >
             <div class="form-group mb-4">
-              <label class="my-1 mr-2" for="type">หมวดหมู่</label>
+              <label class="h6 my-1 mr-2" for="type">หมวดหมู่</label>
               <select class="custom-select my-1 mr-sm-2" id="type">
-                <option selected="selected">หมวดหมู่</option>
-                <option>รับ-เงินเดือน</option>
-                <option>รับ-Phatzii Makeup ค่าแต่งหน้า</option>
-                <option>รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า</option>
-                <option>ค่าอาหาร</option>
-                <option>ค่าเครื่องดื่ม</option>
-                <option>ค่าเดินทาง</option>
-                <option>ค่าไฟฟ้า</option>
-                <option>ค่าประปา</option>
-                <option>ค่าเช่าห้อง</option>
-                <option>เงินเก็บฝากแม่</option>
-                <option>ค่าใช้จ่าย Phatzii Makeup</option>
-                <option>ค่าผ่อนรถ/เดือน</option>
-                <option>สินเชื่อ SCB</option>
-                <option>อื่นๆ</option>
+                <option data-icon="fa-arrows-alt-v" selected="selected">หมวดหมู่</option>
+                <option data-icon="fa-arrow-down" value="รับ-เงินเดือน">รับ-เงินเดือน</option>
+                <option data-icon="fa-arrow-down" value="รับ-Phatzii Makeup ค่าแต่งหน้า">รับ-Phatzii Makeup ค่าแต่งหน้า</option>
+                <option data-icon="fa-arrow-down" value="รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า" >รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า</option>
+                <option data-icon="fa-arrow-up" value="ค่าอาหาร" >ค่าอาหาร</option>
+                <option data-icon="fa-arrow-up" value="ค่าเครื่องดื่ม" >ค่าเครื่องดื่ม</option>
+                <option data-icon="fa-arrow-up" value="ค่าเดินทาง" >ค่าเดินทาง</option>
+                <option data-icon="fa-arrow-up" value="ค่าไฟฟ้า" >ค่าไฟฟ้า</option>
+                <option data-icon="fa-arrow-up" value="ค่าประปา" >ค่าประปา</option>
+                <option data-icon="fa-arrow-up" value="ค่าเช่าห้อง" >ค่าเช่าห้อง</option>
+                <option data-icon="fa-arrow-up" value="เงินเก็บฝากแม่" >เงินเก็บฝากแม่</option>
+                <option data-icon="fa-arrow-up" value="ค่าใช้จ่าย Phatzii Makeup" >ค่าใช้จ่าย Phatzii Makeup</option>
+                <option data-icon="fa-arrow-up" value="ค่าผ่อนรถ/เดือน</option>
+                <option data-icon="fa-arrow-up" value="สินเชื่อ SCB" >สินเชื่อ SCB</option>
+                <option data-icon="fa-arrow-up" value="อื่นๆ" >อื่นๆ</option>
               </select>
             </div>
-
             <div class="form-group focused">
               <label class="h6" for="date">เลือกวันที่</label>
               <div class="input-group mb-4">
@@ -170,12 +173,12 @@
               $(this).delay(2000).fadeOut("fast");
             });
 
-            $('[type="submit"]')
-              .prop("disabled", true)
-              .delay(2000)
-              .queue(function () {
-                $(this).prop("disabled", false);
-              });
+            // $('[type="submit"]')
+            //   .prop("disabled", true)
+            //   .delay(2000)
+            //   .queue(function () {
+            //     $(this).prop("disabled", false);
+            //   });
 
             $("#detail,#price").val("");
           },
@@ -183,9 +186,24 @@
         return false;
       }
 
-      // $(window).load(function () {
-      //   // $("#type").select2();
-      // });
+      function iformat(icon) {
+        var originalOption = icon.element;
+        return $(
+          '<span><i class="fas ' +
+            $(originalOption).data("icon") +
+            '"></i> ' +
+            icon.text +
+            "</span>"
+        );
+      }
+
+      $(document).ready(function () {
+        $(".custom-select").select2({
+          templateSelection: iformat,
+          templateResult: iformat,
+          allowHtml: true,
+        });
+      });
     </script>
   </body>
 </html>
