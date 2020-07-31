@@ -9,10 +9,7 @@
     <link type="text/css" href="/assets/style/style.css" rel="stylesheet" />
     <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/money.png" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
     <script src="https://kit.fontawesome.com/cd4a8443be.js" crossorigin="anonymous"></script>
@@ -24,87 +21,45 @@
 
       <div class="row">
         <div class="col-12">
-          <form
-            id="form"
-            target="_self"
-            onsubmit="return postToGoogle();"
-            action=""
-            autocomplete="off"
-            class="mb-5 mx-auto"
-          >
+          <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off" class="mb-5 mx-auto">
             <div class="form-group mb-4">
               <label class="h6 my-1 mr-2" for="type">หมวดหมู่</label>
               <select class="custom-select my-1 mr-sm-2" id="type">
                 <option data-icon="fa-arrows-alt-v" selected="selected">หมวดหมู่</option>
                 <option data-icon="fa-arrow-down" value="รับ-เงินเดือน">รับ-เงินเดือน</option>
-                <option data-icon="fa-arrow-down" value="รับ-Phatzii Makeup ค่าแต่งหน้า" type="in"
-                  >รับ-Phatzii Makeup ค่าแต่งหน้า</option
-                >
-                <option
-                  data-icon="fa-arrow-down"
-                  value="รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า"
-                  type="in"
-                  >รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า</option
-                >
+                <option data-icon="fa-arrow-down" value="รับ-Phatzii Makeup ค่าแต่งหน้า" type="in">รับ-Phatzii Makeup ค่าแต่งหน้า</option>
+                <option data-icon="fa-arrow-down" value="รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า" type="in">รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า</option>
+
                 <option data-icon="fa-arrow-down" value="รับ-อื่นๆ" type="in">รับ-อื่นๆ</option>
+
                 <option data-icon="fa-arrow-up" value="ค่าอาหาร" type="out">ค่าอาหาร</option>
-                <option data-icon="fa-arrow-up" value="ค่าเครื่องดื่ม" type="out"
-                  >ค่าเครื่องดื่ม</option
-                >
+                <option data-icon="fa-arrow-up" value="ค่าเครื่องดื่ม" type="out">ค่าเครื่องดื่ม</option>
                 <option data-icon="fa-arrow-up" value="ค่าเดินทาง" type="out">ค่าเดินทาง</option>
                 <option data-icon="fa-arrow-up" value="ค่าไฟฟ้า" type="out">ค่าไฟฟ้า</option>
                 <option data-icon="fa-arrow-up" value="ค่าประปา" type="out">ค่าประปา</option>
                 <option data-icon="fa-arrow-up" value="ค่าเช่าห้อง" type="out">ค่าเช่าห้อง</option>
-                <option data-icon="fa-arrow-up" value="เงินเก็บฝากแม่" type="out"
-                  >เงินเก็บฝากแม่</option
-                >
-                <option data-icon="fa-arrow-up" value="ค่าใช้จ่าย Phatzii Makeup" type="out"
-                  >ค่าใช้จ่าย Phatzii Makeup</option
-                >
-                <option data-icon="fa-arrow-up" value="ค่าผ่อน/รถเดือน" type="out"
-                  >ค่าผ่อนรถ/เดือน</option
-                >
-                <option data-icon="fa-arrow-up" value="สินเชื่อ SCB" type="out"
-                  >สินเชื่อ SCB</option
-                >
-                <option data-icon="fa-arrow-up" value="อื่นๆ" type="out">อื่นๆ</option>
+                <option data-icon="fa-arrow-up" value="เงินเก็บฝากแม่" type="out">เงินเก็บฝากแม่</option>
+                <option data-icon="fa-arrow-up" value="ค่าใช้จ่าย Phatzii Makeup" type="out">ค่าใช้จ่าย Phatzii Makeup</option>
+                <option data-icon="fa-arrow-up" value="ค่าผ่อน/รถเดือน" type="out">ค่าผ่อนรถ/เดือน</option>
+                <option data-icon="fa-arrow-up" value="สินเชื่อ SCB" type="out">สินเชื่อ SCB</option>
+                <option data-icon="fa-arrow-up" value="จ่าย-อื่นๆ" type="out">จ่าย-อื่นๆ</option>
               </select>
             </div>
             <div class="form-group focused">
               <label class="h6" for="date">เลือกวันที่</label>
               <div class="input-group mb-4">
-                <input
-                  class="form-control datepicker"
-                  id="date"
-                  placeholder="Select date"
-                  type="date"
-                  aria-label="Date with icon left"
-                />
+                <input class="form-control datepicker" id="date" placeholder="Select date" type="date" aria-label="Date with icon left" />
               </div>
             </div>
 
             <div class="form-group mb-4">
               <label for="price">ราคา</label>
-              <input
-                type="number"
-                class="form-control"
-                id="price"
-                aria-describedby="priceLabel"
-                placeholder="บาท"
-                required
-              />
+              <input type="number" class="form-control" id="price" aria-describedby="priceLabel" placeholder="บาท" required />
             </div>
 
             <div class="form-group mb-4">
               <label for="detail">รายการ</label>
-              <input
-                type="text"
-                class="form-control"
-                id="detail"
-                aria-describedby="detailLabel"
-                placeholder="รายการ"
-                required
-              />
+              <input type="text" class="form-control" id="detail" aria-describedby="detailLabel" placeholder="รายการ" required />
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">
@@ -129,13 +84,7 @@
 
       <div class="row">
         <div class="col-12">
-          <a
-            href="https://docs.google.com/spreadsheets/d/1eV0VAdDGkyff7bQFsCG0tGRITG17BNt3nIhd3bGNnms/edit#gid=1662673155"
-            target="blank"
-            class="btn btn-primary animate-up-2"
-            type="button"
-            >View result</a
-          >
+          <a href="https://docs.google.com/spreadsheets/d/1eV0VAdDGkyff7bQFsCG0tGRITG17BNt3nIhd3bGNnms/edit#gid=1662673155" target="blank" class="btn btn-primary animate-up-2" type="button">View result</a>
         </div>
         <!-- /.col -->
       </div>
@@ -174,8 +123,7 @@
         var money_type = $("#type option:selected").attr("type");
 
         $.ajax({
-          url:
-            "https://docs.google.com/forms/d/e/1FAIpQLSfrm0YbMukIAnAV_v5venfrFCbDuc0j7KYjjRZ97qJtsRKqGQ/formResponse?",
+          url: "https://docs.google.com/forms/d/e/1FAIpQLSfrm0YbMukIAnAV_v5venfrFCbDuc0j7KYjjRZ97qJtsRKqGQ/formResponse?",
           data: {
             "entry.1800535884": detail,
             "entry.1420494445": price,
@@ -208,13 +156,7 @@
 
       function iformat(icon) {
         var originalOption = icon.element;
-        return $(
-          '<span><i class="fas ' +
-            $(originalOption).data("icon") +
-            '"></i> ' +
-            icon.text +
-            "</span>"
-        );
+        return $('<span><i class="fas ' + $(originalOption).data("icon") + '"></i> ' + icon.text + "</span>");
       }
 
       $(document).ready(function () {
