@@ -2517,7 +2517,7 @@ pre code {
 .form-control {
   display: block;
   width: 100%;
-  height: calc(1.5em + 1.2rem + .0625rem);
+  height: 50px;
   padding: .6rem .75rem;
   font-size: 1rem;
   font-weight: 300;
@@ -33997,7 +33997,7 @@ article a:hover {
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-  padding: 5px;
+  padding: 10px;
 }
 
 .select2-container i {
