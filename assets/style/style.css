@@ -34019,3 +34019,19 @@ article a:hover {
   border-radius: .55rem;
   box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
 }
+
+
+.form-check input[type=radio]+.form-check-label {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 20px;
+}
+
+.form-check input[type=radio]+.form-check-label::after,
+.form-check input[type=radio]+.form-check-label::before {
+  top: 16px;
+}
+
+.form-check input[type=radio]:checked+.form-check-label::after {
+  top: 20px;
+}
