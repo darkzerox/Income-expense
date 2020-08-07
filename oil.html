@@ -6,7 +6,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <link type="text/css" href="/assets/style/style.css?v=1" rel="stylesheet" />
+    <link type="text/css" href="/assets/style/style.css?v=2" rel="stylesheet" />
     <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/money.png" />
 
     <link
@@ -39,24 +39,25 @@
                   class="form-check-input"
                   type="radio"
                   name="type"
-                  id="oilout"
-                  value="เติมน้ำมัน"
+                  id="oilin"
+                  value="เก็บค่าน้ำมัน"
                   checked="checked"
                 />
-                <label class="form-check-label" for="oilout"
-                  ><i class="fas fa-car px-2 text-info"></i>เติมน้ำมัน</label
+                <label class="form-check-label" for="oilin"
+                  ><i class="fas fa-piggy-bank px-2 text-secondary"></i>เก็บค่าน้ำมัน</label
                 >
               </div>
-              <div class="form-check">
+
+              <div class="form-check mb-2">
                 <input
                   class="form-check-input"
                   type="radio"
                   name="type"
-                  id="oilin"
-                  value="เก็บค่าน้ำมัน"
+                  id="oilout"
+                  value="เติมน้ำมัน"
                 />
-                <label class="form-check-label" for="oilin"
-                  ><i class="fas fa-piggy-bank px-2 text-primary"></i>เก็บค่าน้ำมัน</label
+                <label class="form-check-label" for="oilout"
+                  ><i class="fas fa-car px-2 text-info"></i>เติมน้ำมัน</label
                 >
               </div>
             </fieldset>
@@ -86,13 +87,13 @@
               />
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">
+            <button type="submit" class="btn btn-secondary btn-block">
               <span>เพิ่มข้อมูล</span>
             </button>
           </form>
 
           <div id="success-msg">
-            <div class="alert alert-success alert-dismissible shadow-soft fade show" role="alert">
+            <div class="alert alert-secondary alert-dismissible shadow-soft fade show" role="alert">
               <span class="alert-inner--icon"><span class="far fa-thumbs-up"></span></span>
               <span class="alert-inner--text"><strong>สำเร็จแว้ววววว</strong></span>
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -111,11 +112,11 @@
           <a
             href="https://docs.google.com/spreadsheets/d/1eV0VAdDGkyff7bQFsCG0tGRITG17BNt3nIhd3bGNnms/edit#gid=1662673155"
             target="blank"
-            class="btn btn-primary animate-up-2"
+            class="btn btn-info animate-up-2"
             type="button"
             >ดูรายการทั้งหมด
           </a>
-          <a href="/" class="btn btn-secondary animate-up-2" type="button">รายรับรายจ่าย</a>
+          <a href="/" class="btn btn-primary animate-up-2" type="button">รายรับรายจ่าย</a>
         </div>
         <!-- /.col -->
       </div>
