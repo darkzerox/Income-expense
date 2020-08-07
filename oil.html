@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>รายรับรายจ่าย</title>
+    <title>ค่าใช้จ่ายน้ำมัน</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -20,7 +20,7 @@
 
   <body>
     <div class="container">
-      <h1 class="text-center my-5">รายการ รายรับ-รายจ่าย</h1>
+      <h1 class="text-center my-5">ค่าใช้จ่ายน้ำมัน</h1>
 
       <div class="row">
         <div class="col-12">
@@ -35,42 +35,8 @@
             <div class="form-group mb-4">
               <label class="h6 my-1 mr-2" for="type">หมวดหมู่</label>
               <select class="custom-select my-1 mr-sm-2" id="type">
-                <option data-icon="fa-arrows-alt-v" selected="selected">หมวดหมู่</option>
-                <option data-icon="fa-arrow-down" value="รับ-เงินเดือน">รับ-เงินเดือน</option>
-                <option data-icon="fa-arrow-down" value="รับ-Phatzii Makeup ค่าแต่งหน้า" type="in"
-                  >รับ-Phatzii Makeup ค่าแต่งหน้า</option
-                >
-                <option
-                  data-icon="fa-arrow-down"
-                  value="รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า"
-                  type="in"
-                  >รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า</option
-                >
-
-                <option data-icon="fa-arrow-down" value="รับ-อื่นๆ" type="in">รับ-อื่นๆ</option>
-
-                <option data-icon="fa-arrow-up" value="ค่าอาหาร" type="out">ค่าอาหาร</option>
-                <option data-icon="fa-arrow-up" value="ค่าเครื่องดื่ม" type="out"
-                  >ค่าเครื่องดื่ม</option
-                >
-                <option data-icon="fa-arrow-up" value="ค่าเดินทาง" type="out">ค่าเดินทาง</option>
-                <option data-icon="fa-arrow-up" value="ค่าไฟฟ้า" type="out">ค่าไฟฟ้า</option>
-                <option data-icon="fa-arrow-up" value="ค่าประปา" type="out">ค่าประปา</option>
-                <option data-icon="fa-arrow-up" value="ค่าเช่าห้อง" type="out">ค่าเช่าห้อง</option>
-                <option data-icon="fa-arrow-up" value="เงินเก็บฝากแม่" type="out"
-                  >เงินเก็บฝากแม่</option
-                >
-                <option data-icon="fa-arrow-up" value="ค่าใช้จ่าย Phatzii Makeup" type="out"
-                  >ค่าใช้จ่าย Phatzii Makeup</option
-                >
-                <option data-icon="fa-arrow-up" value="ค่าผ่อน/รถเดือน" type="out"
-                  >ค่าผ่อนรถ/เดือน</option
-                >
-                <option data-icon="fa-arrow-up" value="สินเชื่อ SCB" type="out"
-                  >สินเชื่อ SCB</option
-                >
-                <option data-icon="fa-arrow-up" value="ทำบุญ" type="out">ทำบุญ</option>
-                <option data-icon="fa-arrow-up" value="จ่าย-อื่นๆ" type="out">จ่าย-อื่นๆ</option>
+                <option data-icon="fa-arrow-down" value="จ่าย" selected>จ่ายน้ำมัน</option>
+                <option data-icon="fa-arrow-up" value="รับ" type="out">รับน้ำมัน</option>
               </select>
             </div>
             <div class="form-group focused">
@@ -98,19 +64,6 @@
               />
             </div>
 
-            <div class="form-group mb-4">
-              <label for="detail">รายการ</label>
-              <textarea
-                type="text"
-                class="form-control"
-                id="detail"
-                aria-describedby="detailLabel"
-                placeholder="รายการ"
-                rows="6"
-                required
-              ></textarea>
-            </div>
-
             <button type="submit" class="btn btn-primary btn-block">
               <span>เพิ่มข้อมูล</span>
             </button>
@@ -133,7 +86,7 @@
 
       <div class="row">
         <div class="col-12">
-          <a href="/oil.html" class="btn btn-secondary animate-up-2" type="button">ค่าน้ำมัน</a>
+          <a href="/" class="btn btn-secondary animate-up-2" type="button">รายรับรายจ่าย</a>
 
           <a
             href="https://docs.google.com/spreadsheets/d/1eV0VAdDGkyff7bQFsCG0tGRITG17BNt3nIhd3bGNnms/edit#gid=1662673155"
@@ -143,7 +96,6 @@
             >ดูรายการทั้งหมด</a
           >
         </div>
-
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -174,23 +126,19 @@
       });
 
       function postToGoogle() {
-        var detail = $("#detail").val();
         var price = $("#price").val();
         var date = $("#date").val().split("-");
         var type = $("#type").val();
-        var money_type = $("#type option:selected").attr("type");
 
         $.ajax({
           url:
-            "https://docs.google.com/forms/d/e/1FAIpQLSfrm0YbMukIAnAV_v5venfrFCbDuc0j7KYjjRZ97qJtsRKqGQ/formResponse?",
+            "https://docs.google.com/forms/u/1/d/e/1FAIpQLSe-LbZZ3g_WAcr1jnQ-lVGc3CVQKnnSOVpu3BO5igE6yX89yA/formResponse",
           data: {
-            "entry.1800535884": detail,
-            "entry.1420494445": price,
-            "entry.1512904569_year": date[0],
-            "entry.1512904569_month": date[1],
-            "entry.1512904569_day": date[2],
-            "entry.1684521966": type,
-            "entry.824653237": money_type,
+            "entry.1521598638": type,
+            "entry.440042571": price,
+            "entry.1078797028_year": date[0],
+            "entry.1078797028_month": date[1],
+            "entry.1078797028_day": date[2],
           },
           type: "POST",
           dataType: "xml",
@@ -199,13 +147,6 @@
             $("#success-msg").fadeIn("fast", function () {
               $(this).delay(2000).fadeOut("fast");
             });
-
-            // $('[type="submit"]')
-            //   .prop("disabled", true)
-            //   .delay(2000)
-            //   .queue(function () {
-            //     $(this).prop("disabled", false);
-            //   });
 
             $("#detail,#price").val("");
           },
