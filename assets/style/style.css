@@ -3113,8 +3113,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #009688;
-  border-color: #009688;
+  background-color: #fe91ca;
+  border-color: #fe91ca;
   box-shadow: inset 0 1px 0 rgba(236, 240, 243, .15), 0 1px 1px rgba(38, 40, 51, .075)
 }
 
@@ -17150,7 +17150,7 @@ button.bg-slack:hover {
 }
 
 .text-primary {
-  color: #e6e7ee !important
+  color: #fe91ca !important
 }
 
 a.text-primary:focus,
@@ -26844,7 +26844,7 @@ button.section-slack:hover {
 
 .alert-success {
   color: #fff;
-  background: #009688;
+  background: #fe91ca;
   font-size: 20px;
 }
 
@@ -27623,7 +27623,7 @@ a.badge-slack:hover {
 
 .btn-primary {
   color: #fff;
-  background-color: #009688;
+  background-color: #fe91ca;
 }
 
 .btn-primary:hover {
@@ -33144,7 +33144,7 @@ article a:hover {
 
 .text-primary,
 .text-primary:hover {
-  color: #e6e7ee !important
+  color: #fe91ca !important
 }
 
 .text-primary .display-1,
@@ -33164,7 +33164,7 @@ article a:hover {
 .text-primary h4,
 .text-primary h5,
 .text-primary h6 {
-  color: #e6e7ee
+  color: #fe91ca
 }
 
 .text-primary .text-muted {
