@@ -32,13 +32,35 @@
             autocomplete="off"
             class="mb-5 mx-auto"
           >
-            <div class="form-group mb-4">
-              <label class="h6 my-1 mr-2" for="type">หมวดหมู่</label>
-              <select class="custom-select my-1 mr-sm-2" id="type">
-                <option data-icon="fa-arrow-down" value="จ่าย" selected>จ่ายน้ำมัน</option>
-                <option data-icon="fa-arrow-up" value="รับ" type="out">รับน้ำมัน</option>
-              </select>
-            </div>
+            <fieldset class="mb-4">
+              <legend class="h6">รายการ</legend>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="type"
+                  id="oilout"
+                  value="เติมน้ำมัน"
+                  checked="checked"
+                />
+                <label class="form-check-label" for="oilout"
+                  ><i class="fas fa-car px-2 text-danger"></i>เติมน้ำมัน</label
+                >
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="type"
+                  id="oilin"
+                  value="เก็บค่าน้ำมัน"
+                />
+                <label class="form-check-label" for="oilin"
+                  ><i class="fas fa-piggy-bank px-2 text-success"></i>เก็บค่าน้ำมัน</label
+                >
+              </div>
+            </fieldset>
+
             <div class="form-group focused">
               <label class="h6" for="date">เลือกวันที่</label>
               <div class="input-group mb-4">
@@ -127,7 +149,7 @@
       function postToGoogle() {
         var price = $("#price").val();
         var date = $("#date").val().split("-");
-        var type = $("#type").val();
+        var type = $("input[name=type]:checked").val();
 
         $.ajax({
           url:
