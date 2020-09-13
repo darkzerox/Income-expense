@@ -9,10 +9,7 @@
     <link type="text/css" href="/assets/style/style.css?v=2" rel="stylesheet" />
     <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/money.png" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
     <script src="https://kit.fontawesome.com/cd4a8443be.js" crossorigin="anonymous"></script>
@@ -37,39 +34,29 @@
               <select class="custom-select my-1 mr-sm-2" id="type">
                 <option data-icon="fa-arrows-alt-v" selected="selected">หมวดหมู่</option>
                 <option data-icon="fa-arrow-down" value="รับ-เงินเดือน">รับ-เงินเดือน</option>
-                <option data-icon="fa-arrow-down" value="รับ-Phatzii Makeup ค่าแต่งหน้า" type="in"
-                  >รับ-Phatzii Makeup ค่าแต่งหน้า</option
-                >
-                <option
-                  data-icon="fa-arrow-down"
-                  value="รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า"
-                  type="in"
-                  >รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า</option
-                >
+                <option data-icon="fa-arrow-down" value="รับ-Phatzii Makeup ค่าแต่งหน้า" type="in">
+                  รับ-Phatzii Makeup ค่าแต่งหน้า
+                </option>
+                <option data-icon="fa-arrow-down" value="รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า" type="in">
+                  รับ-เงินมัดจำ Phatzii Makeup ค่าแต่งหน้า
+                </option>
 
                 <option data-icon="fa-arrow-down" value="รับ-อื่นๆ" type="in">รับ-อื่นๆ</option>
 
                 <option data-icon="fa-arrow-up" value="ค่าอาหาร" type="out">ค่าอาหาร</option>
-                <option data-icon="fa-arrow-up" value="ค่าเครื่องดื่ม" type="out"
-                  >ค่าเครื่องดื่ม</option
-                >
+                <option data-icon="fa-arrow-up" value="ค่าเครื่องดื่ม" type="out">ค่าเครื่องดื่ม</option>
                 <option data-icon="fa-arrow-up" value="ค่าเดินทาง" type="out">ค่าเดินทาง</option>
                 <option data-icon="fa-arrow-up" value="ค่าไฟฟ้า" type="out">ค่าไฟฟ้า</option>
                 <option data-icon="fa-arrow-up" value="ค่าประปา" type="out">ค่าประปา</option>
                 <option data-icon="fa-arrow-up" value="ค่าเช่าห้อง" type="out">ค่าเช่าห้อง</option>
-                <option data-icon="fa-arrow-up" value="เงินเก็บฝากแม่" type="out"
-                  >เงินเก็บฝากแม่</option
-                >
-                <option data-icon="fa-arrow-up" value="ค่าใช้จ่าย Phatzii Makeup" type="out"
-                  >ค่าใช้จ่าย Phatzii Makeup</option
-                >
-                <option data-icon="fa-arrow-up" value="ค่าผ่อน/รถเดือน" type="out"
-                  >ค่าผ่อนรถ/เดือน</option
-                >
-                <option data-icon="fa-arrow-up" value="สินเชื่อ SCB" type="out"
-                  >สินเชื่อ SCB</option
-                >
+                <option data-icon="fa-arrow-up" value="เงินเก็บฝากแม่" type="out">เงินเก็บฝากแม่</option>
+                <option data-icon="fa-arrow-up" value="ค่าใช้จ่าย Phatzii Makeup" type="out">
+                  ค่าใช้จ่าย Phatzii Makeup
+                </option>
+                <option data-icon="fa-arrow-up" value="ค่าผ่อน/รถเดือน" type="out">ค่าผ่อนรถ/เดือน</option>
+                <option data-icon="fa-arrow-up" value="สินเชื่อ SCB" type="out">สินเชื่อ SCB</option>
                 <option data-icon="fa-arrow-up" value="ทำบุญ" type="out">ทำบุญ</option>
+                <option data-icon="fa-arrow-up" value="ทางด่วน" type="out">ทางด่วน</option>
                 <option data-icon="fa-arrow-up" value="จ่าย-อื่นๆ" type="out">จ่าย-อื่นๆ</option>
               </select>
             </div>
@@ -168,35 +155,35 @@
       };
 
       $(document).ready(function () {
-        console.log("");
-        $("#date").val(new Date().toDateInputValue());
+        console.log('');
+        $('#date').val(new Date().toDateInputValue());
       });
 
       function postToGoogle() {
-        var detail = $("#detail").val();
-        var price = $("#price").val();
-        var date = $("#date").val().split("-");
-        var type = $("#type").val();
-        var money_type = $("#type option:selected").attr("type");
+        var detail = $('#detail').val();
+        var price = $('#price').val();
+        var date = $('#date').val().split('-');
+        var type = $('#type').val();
+        var money_type = $('#type option:selected').attr('type');
 
         $.ajax({
           url:
-            "https://docs.google.com/forms/d/e/1FAIpQLSfrm0YbMukIAnAV_v5venfrFCbDuc0j7KYjjRZ97qJtsRKqGQ/formResponse?",
+            'https://docs.google.com/forms/d/e/1FAIpQLSfrm0YbMukIAnAV_v5venfrFCbDuc0j7KYjjRZ97qJtsRKqGQ/formResponse?',
           data: {
-            "entry.1800535884": detail,
-            "entry.1420494445": price,
-            "entry.1512904569_year": date[0],
-            "entry.1512904569_month": date[1],
-            "entry.1512904569_day": date[2],
-            "entry.1684521966": type,
-            "entry.824653237": money_type,
+            'entry.1800535884': detail,
+            'entry.1420494445': price,
+            'entry.1512904569_year': date[0],
+            'entry.1512904569_month': date[1],
+            'entry.1512904569_day': date[2],
+            'entry.1684521966': type,
+            'entry.824653237': money_type,
           },
-          type: "POST",
-          dataType: "xml",
+          type: 'POST',
+          dataType: 'xml',
           success: function (d) {},
           error: function (x, y, z) {
-            $("#success-msg").fadeIn("fast", function () {
-              $(this).delay(2000).fadeOut("fast");
+            $('#success-msg').fadeIn('fast', function () {
+              $(this).delay(2000).fadeOut('fast');
             });
 
             // $('[type="submit"]')
@@ -206,7 +193,7 @@
             //     $(this).prop("disabled", false);
             //   });
 
-            $("#detail,#price").val("");
+            $('#detail,#price').val('');
           },
         });
         return false;
@@ -214,17 +201,11 @@
 
       function iformat(icon) {
         var originalOption = icon.element;
-        return $(
-          '<span><i class="fas ' +
-            $(originalOption).data("icon") +
-            '"></i> ' +
-            icon.text +
-            "</span>"
-        );
+        return $('<span><i class="fas ' + $(originalOption).data('icon') + '"></i> ' + icon.text + '</span>');
       }
 
       $(document).ready(function () {
-        $(".custom-select").select2({
+        $('.custom-select').select2({
           templateSelection: iformat,
           templateResult: iformat,
           allowHtml: true,
